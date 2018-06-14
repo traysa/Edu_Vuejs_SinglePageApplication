@@ -23,9 +23,15 @@ const config = {
         test: /\.vue$/,
         loader: 'vue-loader'
       },      
+      {
+        // Babel loader
+        test: /\.js$/, // Does not need to be for vue files, since they already have been transpiled to js files with the vue-loader
+        loader: 'babel-loader',
+        exclude: /node_modules/
       }
     ]
   },
+
   // If not resolving the vue path, an error will be thrown when loading the page.
   // The error is about using vue in non-compiled areas.
   // Workaround: Add path to vue; not recommended, since it decreases performance.
