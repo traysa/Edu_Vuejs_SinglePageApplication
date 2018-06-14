@@ -9,14 +9,20 @@ const config = {
   entry: {
     app: path.resolve(__dirname, "../src/client-entry.js")
   },
-  module: {
-    // Linting - enforce style rules when building
-    rules: [
+  module: {    
+    rules: [      
       {
+        // Linting - enforce style rules when building
         enforce: "pre", // Check sourcefiles before they are modified by other loaders
-        test: /(\.js$)/, // File extensions, which shall be tested
+        test: /(\.js$)|(\.vue$)/, // File extensions, which shall be tested
         loader: "eslint-loader", // Use eslint-loader
         exclude: /node_modules/ // exclude files in the node_modules folder
+      },      
+      {
+        // Vue-File loader
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },      
       }
     ]
   },
@@ -24,11 +30,13 @@ const config = {
   // The error is about using vue in non-compiled areas.
   // Workaround: Add path to vue; not recommended, since it decreases performance.
   // Instead make sure that all components are defined in *.vue files, because they are pre-compiled
-  resolve: {
-    alias: {
-      vue: 'vue/dist/vue.js'
-    }
-  },
+  // NOT NEEDED WHEN HAVING VUE-LOADER
+  // resolve: {
+  //   alias: {
+  //     vue: 'vue/dist/vue.js'
+  //   }
+  // },
+
   // Define where the distribution files are stored
   output: {
     path: path.resolve(__dirname, "../dist"),

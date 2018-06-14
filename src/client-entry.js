@@ -13,6 +13,7 @@ app.$mount('#app')
 // "The following modules couldn't be hot updated: (Full reload needed)
 // This is usually because the modules which have changed (and their parents) do not know how to hot reload themselves.
 // See http://webpack.github.io/docs/hot-module-replacement-with-webpack.html for more details."
-if (module.hot) {
-  module.hot.accept()
-}
+// NOT NEEDED WHEN HAVING VUE-LOADER (see webpack.base.config.js)
+// if (module.hot) {
+//   module.hot.accept()
+// }
