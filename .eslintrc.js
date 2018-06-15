@@ -5,6 +5,8 @@
 module.exports = {
   // Set this file as the parent scope of the rules, so rules apply to all files of the project
   root: true,
+  // Add babel linting parser
+  parser: 'babel-eslint',
   // Set parsing options to modules, since ECMA modules are used
   parserOptions: {
     sourceType: 'module'
