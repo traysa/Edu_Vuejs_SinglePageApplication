@@ -21,7 +21,11 @@ const config = {
       {
         // Vue-File loader
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: { // Options for how to parse styles in the vue file
+          css: 'css-loader',
+          'scss': 'css-loader|sass-loader'
+        }
       },      
       {
         // Babel loader
